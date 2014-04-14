@@ -2,6 +2,7 @@
 
 module Spree
   class CurrencyConverter < ActiveRecord::Base
+    attr_accessible :nominal, :value, :date_req, :currency
     belongs_to :currency
     default_scope { order('spree_currency_converters.date_req ASC') }
 
