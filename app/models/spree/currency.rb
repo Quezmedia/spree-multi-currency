@@ -5,7 +5,7 @@ require 'money'
 module Spree
   class Currency < ActiveRecord::Base
 
-    attr_accessible :num_code, :char_code, :name
+    attr_accessible :num_code, :char_code, :name, :basic, :locale
 
     has_many :currency_converters do
       def get_rate(date)
