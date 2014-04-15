@@ -2,6 +2,8 @@
 
 Spree::LineItem.class_eval do
 
+  attr_accessible :variant
+
   # redefine spree/core/app/models/spree/line_item.rb
   def single_money
     calculate_money(price)

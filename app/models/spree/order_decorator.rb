@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 Spree::OrderContents.class_eval do
-
   def add_to_line_item(line_item, variant, quantity, currency = nil, shipment = nil)
     if line_item
       line_item.target_shipment = shipment
@@ -26,6 +25,10 @@ Spree::OrderContents.class_eval do
 end
 
 Spree::Order.class_eval do
+
+  attr_accessible :payment_state, :shipment_state, :item_total,
+    :adjustment_total, :payment_total, :total
+
   extend Spree::MultiCurrency
   multi_currency :item_total, :total,
                  rate_at_date: lambda { |t| t.created_at },
