@@ -82,7 +82,7 @@ Spree::Order.class_eval do
 
     # ensure checkout payment always matches order total
     # FIXME implement for partitial payments
-    if payment? && payments.first.checkout? && payments.first.amount != total
+    if payment? && payments.any? && payments.first.checkout? && payments.first.amount != total
       payments.first.update_attributes(amount: total)
     end
 
